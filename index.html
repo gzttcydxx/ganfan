@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>博饼</title>
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/bobing.css" />
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js" ></script>
+	</head>
+	<body>
+		<div class="main">
+			<div class="bowl" id="dicebox">
+				<!-- <img class="bg_img" src="img/port.jpg" /> -->
+				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			</div>
+		</div>
+		
+		<div class="btn-box">
+			<label>骰子个数：</label>
+			<input id="range" type="range" min="1" max="5" value="1" oninput="change()"><span>1</span></input>
+			<br>
+			<input class="btn" type="button" value="开始" onclick="begin()" />
+		</div>
+
+		<div>
+			<img src="img/list.jpg">
+		</div>
+  
+		<script type="text/javascript">
+		  function change() {
+			var line = document.getElementById("range");
+			$('span').empty();
+			$('span').append(line.value);
+			console.log($('span'));
+		  }
+		</script>
+
+		<script type="text/javascript" src="js/dice.js" ></script>
+		<script>
+			function begin(){
+				dicefun.init(document.getElementById("range").value);
+			}
+		</script>
+	</body>
+</html>
