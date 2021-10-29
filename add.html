@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>哥哥猫猫随机菜单</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/bobing.css" />
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入bootstrap-table样式 -->
+    <link href="https://cdn.bootcss.com/bootstrap-table/1.11.1/bootstrap-table.min.css" rel="stylesheet">
+    <!-- jquery及bootstrapjs -->
+    <script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> <!-- bootstrap-table.min.js -->
+    <script src="https://cdn.bootcss.com/bootstrap-table/1.11.1/bootstrap-table.min.js"></script> <!-- 引入中文语言包 -->
+    <script src="https://cdn.bootcss.com/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
+    <style>
+        /* 表格样式 */
+        .table>tbody>tr>td {
+            border: 0px;
+            text-align: center;
+        }
+
+        .bootstrap-table .table thead>tr>th {
+            text-align: center;
+        }
+
+        .table thead {
+            background: #ebeaea;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">哥哥猫猫随机菜单</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Home</a>
+                    <li><a href="add.html">Add menu</a></li>
+                    <!-- <li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+							aria-expanded="false">添加菜单<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							
+							<li><a href="data/maomao.json">添加猫猫菜单</a></li>
+						</ul>
+					</li> -->
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <br><br><br><br><br>
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label for="firstname" class="col-sm-2 control-label">菜名</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="food" id="food" placeholder="请输入菜名">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <div class="radio-inline">
+                                <label>
+                                    <input type="radio" name="who" id="哥哥" value="gege"
+                                        checked>哥哥
+                                </label>
+                            </div>
+                            <div class="radio-inline">
+                                <label>
+                                    <input type="radio" name="who" id="猫猫" value="maomao">猫猫
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button id="add-btn" type="button" class="btn btn-default">添加</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    $('#add-btn').click(function () {
+        var form = $('form').serializeArray()
+        $.getJSON("data/" + form[1].value + ".json", function (data) {
+            var id = data.length + 1;
+            var up = {"id": id, "food": form[0].value}
+            data.push(up);
+            console.log(data);
+        })
+    })
+</script>
+
+</html>

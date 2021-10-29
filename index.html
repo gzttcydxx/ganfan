@@ -32,6 +32,28 @@
 </head>
 
 <body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/">哥哥猫猫随机菜单</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="index.html">Home</a>
+					<li><a href="add.html">Add menu</a></li>
+					<!-- <li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+							aria-expanded="false">添加菜单<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							
+							<li><a href="data/maomao.json">添加猫猫菜单</a></li>
+						</ul>
+					</li> -->
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+	</nav>
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<div class="span12">
@@ -64,7 +86,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- <div>
 		<img src="img/list.jpg">
 	</div> -->
@@ -80,10 +102,10 @@
 	<script type="text/javascript" src="js/dice.js"></script>
 	<script>
 		function begin() {
-			$('#btn').css({'background-color': 'gray'});
+			$('#btn').css({ 'background-color': 'gray' });
 			$('#btn').attr("disabled", true);
-			setTimeout(function(){
-				$('#btn').css({'background-color': 'blue'});
+			setTimeout(function () {
+				$('#btn').css({ 'background-color': 'blue' });
 				$('#btn').attr("disabled", false);
 			}, 2000);
 			var gege = document.getElementById("gege");
@@ -139,7 +161,7 @@
 			]
 		});
 		function actionFormatter() {
-			$('#btn').bind('click',function() {
+			$('#btn').bind('click', function () {
 				var num = document.getElementById("range").value;
 			})
 		}
